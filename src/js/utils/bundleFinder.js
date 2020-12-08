@@ -5,13 +5,13 @@ export const bundleFinder = async (module, props) => {
   switch (moduleName) {
     case "header":
       loadedModule = await import(
-        /* webpackChunkName: "header" */ `../${module}`
+        /* webpackChunkName: "[request]-" */ `../${module}`
       );
       break;
 
     case "alert":
       loadedModule = await import(
-        /* webpackChunkName: "alert" */ `../${module}`
+        /* webpackChunkName: "[request]-" */ `../${module}`
       );
       break;
   }
