@@ -59,6 +59,6 @@ module.exports = {
 
    output: {
     filename: 'js/components/[name]-bundle.js',
-    path: path.resolve(__dirname, "public")
+    path: path.resolve(__dirname, "docs")
   },
 };
