@@ -1,3 +1,5 @@
+import { bundleFinder } from "./utils/bundleFinder";
+
 let moduleLoader = function (options) {
   const defaults = {
     loadImmediately: true,
@@ -16,7 +18,7 @@ let moduleLoader = function (options) {
     }
   }
 
-  function loadModules(els) {
+   function loadModules(els) {
     els.forEach((el) => {
       const module = el.getAttribute(settings.moduleDataAttr);
 
@@ -24,16 +26,8 @@ let moduleLoader = function (options) {
         containerElement: el,
       };
 
-      import(
-        /* webpackChunkName: "module" */
+      bundleFinder(module).then((moduleToRun) => moduleToRun.default(props))
 
-        `./${module}`
-      )
-        .then(({ default: _ }) => {
-          const module = _;
-          module(props);
-        })
-        .catch((error) => "An error occurred while loading the component");
     });
   }
 

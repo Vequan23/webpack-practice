@@ -5,13 +5,12 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: {
-    main: './src/js/main.js'
-  },
+  entry: ["@babel/polyfill", "./src/js/main.js"],
+
 
   plugins: [
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" }),
+    new MiniCssExtractPlugin({ filename: "[name].css" }),
     new HtmlWebpackPlugin({filename: 'index.html', template: "./src/template.html" }),
     new HtmlWebpackPlugin({filename: 'test.html', template: "./src/template2.html" }),
   ],
