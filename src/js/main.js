@@ -25,7 +25,7 @@ let moduleLoader = function (options) {
       };
 
       import(
-        /* webpackChunkName: "[request]" */
+        /* webpackChunkName: "module" */
 
         `./${module}`
       )
